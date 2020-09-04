@@ -3,23 +3,62 @@
 .mainPageSearchSection {
   background: $primary-color;
   height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+
+  .searchPageTitle {
+    width: 60vw;
+    text-align: center;
+  }
 
   .searchArea {
     width: 60vw;
-    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: $secondary-color;
+    padding: 20px;
+
+    * {
+      height: 50px;
+      border-radius: 5px;
+    }
 
     input {
-      margin-top: 30%;
-      height: 50px;
       padding: 10px 20px;
-      border-radius: 25px;
       border: none;
       box-sizing: border-box;
-      width: 100%;
+      width: 80%;
+
 
       &:focus {
         outline: none;
       }
     }
+
+    button {
+      width: 15%;
+      background: $light-orange;
+      border: none;
+      text-transform: uppercase;
+      color: white;
+      cursor: pointer;
+
+      &:hover {
+        background: $dark-orange;
+      }
+    }
   }
+}
+
+@media only screen and (max-width: 740px) {
+  .mainPageSearchSection {
+    .searchArea {
+      width: 100vw;
+    }
+  }
+
 }
