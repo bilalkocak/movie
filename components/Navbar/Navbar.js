@@ -5,10 +5,10 @@ const Navbar = () => {
     return (
         <div className={'navbar'}>
             <Link href={'/'}>
-                <a>Ana Sayfa</a>
+                <a>Search</a>
             </Link>
-            <Link href={'/favoriler'}>
-                <a>Favoriler</a>
+            <Link href={'/favorites'}>
+                <a>Favorites</a>
             </Link>
         </div>
     );
