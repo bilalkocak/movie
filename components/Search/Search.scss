@@ -1,0 +1,25 @@
+@import "styles/colors";
+
+.mainPageSearchSection {
+  background: $primary-color;
+  height: 60vh;
+
+  .searchArea {
+    width: 60vw;
+    margin: 0 auto;
+
+    input {
+      margin-top: 30%;
+      height: 50px;
+      padding: 10px 20px;
+      border-radius: 25px;
+      border: none;
+      box-sizing: border-box;
+      width: 100%;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}
