@@ -6,85 +6,110 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  padding-top: 90px;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .searchPageTitle {
+      width: 60vw;
+      text-align: center;
+
+      div {
+        display: flex;
+        width: 60%;
+        margin: 20px auto;
+        justify-content: center;
 
 
-  .searchPageTitle {
-    width: 60vw;
-    text-align: center;
+        a {
+          color: $orange-text;
 
-    div {
-      display: flex;
-      width: 60%;
-      margin: 20px auto;
-      justify-content: center;
+          &:first-child {
+            margin-right: 20px;
+          }
 
-
-      a {
-        color: $orange-text;
-
-        &:first-child {
-          margin-right: 20px;
+          &:hover {
+            color: white;
+          }
         }
+      }
+
+    }
+
+
+    .searchArea {
+      width: 60vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: $secondary-color;
+      padding: 20px;
+
+      * {
+        height: 50px;
+        border-radius: 5px;
+      }
+
+      input {
+        padding: 10px 20px;
+        border: none;
+        box-sizing: border-box;
+        width: 80%;
+        color: $primary-color;
+
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      button {
+        width: 15%;
+        background: $light-orange;
+        border: none;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 16px;
+        color: white;
+        cursor: pointer;
 
         &:hover {
-          color: white;
+          background: $dark-orange;
         }
       }
     }
-
   }
 
-
-  .searchArea {
-    width: 60vw;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: $secondary-color;
-    padding: 20px;
-
-    * {
-      height: 50px;
-      border-radius: 5px;
-    }
-
-    input {
-      padding: 10px 20px;
-      border: none;
-      box-sizing: border-box;
-      width: 80%;
-      color: $primary-color;
-
-
-      &:focus {
-        outline: none;
-      }
-    }
-
-    button {
-      width: 15%;
-      background: $light-orange;
-      border: none;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 16px;
-      color: white;
-      cursor: pointer;
-
-      &:hover {
-        background: $dark-orange;
-      }
-    }
+  .triangle {
+    width: 0;
+    height: 0;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-bottom: 25px solid white;
+    margin-top: auto;
   }
 
 }
 
 @media only screen and (max-width: 740px) {
   .mainPageSearchSection {
-    .searchArea {
-      width: 100vw;
+    .content {
+      .searchArea {
+        width: 100vw;
+
+        input {
+          width: 70%;
+        }
+
+        button {
+          width: 25%;
+        }
+      }
     }
   }
-
 }
