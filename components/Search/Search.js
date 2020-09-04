@@ -17,12 +17,16 @@ const Search = () => {
                 <h3>
                     The Open Movie Database
                 </h3>
+                <div>
+                    <a href="#top10">Top10</a>
+                    <a href="#editors">Editor's choices</a>
+                </div>
             </div>
             <div className={'searchArea'}>
-                <input placeholder="input search text"
+                <input placeholder="Search movie..."
                        onChange={(e) => onChangeSearchInput(e.target.value)}
                        value={searchText}/>
-                <button>Ara</button>
+                <button>Search</button>
             </div>
         </div>
     );

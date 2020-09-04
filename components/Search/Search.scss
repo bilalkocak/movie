@@ -12,7 +12,29 @@
   .searchPageTitle {
     width: 60vw;
     text-align: center;
+
+    div {
+      display: flex;
+      width: 60%;
+      margin: 20px auto;
+      justify-content: center;
+
+
+      a {
+        color: $orange-text;
+
+        &:first-child {
+          margin-right: 20px;
+        }
+
+        &:hover {
+          color: white;
+        }
+      }
+    }
+
   }
+
 
   .searchArea {
     width: 60vw;
@@ -32,6 +54,7 @@
       border: none;
       box-sizing: border-box;
       width: 80%;
+      color: $primary-color;
 
 
       &:focus {
@@ -44,6 +67,8 @@
       background: $light-orange;
       border: none;
       text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 16px;
       color: white;
       cursor: pointer;
 
@@ -52,6 +77,7 @@
       }
     }
   }
+
 }
 
 @media only screen and (max-width: 740px) {
