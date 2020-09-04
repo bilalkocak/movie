@@ -1,0 +1,19 @@
+@import "styles/colors";
+
+.navbar {
+  background: $primary-color;
+  padding: 0 40px;
+  height: 60px;
+  display: flex;
+  color: white;
+  align-items: center;
+
+  a {
+    display: flex;
+    padding: 15px 10px;
+
+    &:last-child {
+      margin-left: 10px;
+    }
+  }
+}
