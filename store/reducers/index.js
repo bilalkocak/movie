@@ -1,6 +1,6 @@
 import {combineReducers} from "redux";
-import {postReducer} from './postReducer'
+import {movie} from './movie'
 
 export default combineReducers({
-    postReducer
+    movie: movie
 })

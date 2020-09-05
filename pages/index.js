@@ -1,6 +1,6 @@
 import {useDispatch} from "react-redux";
 import React, {useEffect, useState} from "react"
-import {fetchPosts} from "../store/actions/postAction";
+import {fetchPosts} from "../store/actions/movie";
 import Layout from "../components/Layout";
 import Search from "../components/Search/Search";
 import Suggestion from "../components/TopTen/Suggestion";
@@ -25,7 +25,7 @@ export default function Home() {
         getEditorsChoices()
     }, [])
     return (
-        <Layout>
+        <Layout className={'index'}>
             <Search/>
             <Suggestion id={'top10'} title={'Top 10'} films={topTen}/>
             <Suggestion id={'editors'} title={'Editor\'s Choices'} films={editorChoices}/>
