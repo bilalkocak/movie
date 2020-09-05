@@ -1,0 +1,25 @@
+@import "colors";
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bolder;
+  background-color: $dark-orange;
+  width: 78%;
+  height: 30px;
+  border-radius: 4px;
+  cursor: pointer;
+  user-select: none;
+  margin-right: auto;
+  margin-left: auto;
+  transition: background-color 1s ease-in-out;
+  border: none;
+}
+
+
+.redButton {
+  background-color: $red !important
+}
