@@ -2,7 +2,10 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios'
 import {API_URL} from "../../config/config";
 import RatingBar from "../Common/RatingBar/RatingBar";
+import ClipLoader from "react-spinners/ClipLoader";
 import CountUp from 'react-countup';
+import Link from "next/link";
+import Button from "../Common/Button/Button";
 
 
 const MovieCard = ({film}) => {
@@ -18,7 +21,12 @@ const MovieCard = ({film}) => {
     return (
         <>
             {
-                loading ? (<div>Loading</div>) : (
+                loading ? <ClipLoader
+                    size={150}
+                    css={
+                        `margin: auto`
+                    }
+                /> : (
                     <div className={"movieCard"}>
                         <div className={"movieImg"}>
                             <img src={filmData.Poster} alt=""/>
@@ -40,9 +48,10 @@ const MovieCard = ({film}) => {
                             <RatingBar rate={filmData.imdbRating} width={'100%'}/>
                         </div>
 
-                        <button className={'button'} onClick={() => history.push('/movie-detail/' + filmData.id)}>
-                            MOVIE DETAILS
-                        </button>
+                        <Link href={`detail?id=${filmData.imdbID}`}>
+                            <Button text={'MOVIE DETAILS'} className={'button'}/>
+                        </Link>
+
                     </div>
                 )
             }
