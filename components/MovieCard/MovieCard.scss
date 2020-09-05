@@ -1,0 +1,74 @@
+@import "styles/colors";
+
+.movieCard {
+  padding: 40px;
+  background-image: linear-gradient($primary-color, $primary-color, #fff, #fff, #fff);
+  width: 350px;
+  text-align: center;
+  box-sizing: border-box;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  -webkit-box-shadow: 1px 1px 10px 0px rgba(59, 59, 59, 0.72);
+  -moz-box-shadow: 1px 1px 10px 0px rgba(59, 59, 59, 0.72);
+  box-shadow: 1px 1px 10px 0px rgba(59, 59, 59, 0.72);
+
+  .movieImg {
+    width: 200px;
+    height: 290px;
+
+    img {
+      width: 200px;
+      height: 290px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+  }
+
+  .movieInfoContainer {
+    width: 90%;
+
+    .movieName {
+      margin-top: 20px;
+      font-size: 16px;
+      height: 40px;
+      font-weight: bold;
+    }
+
+    .movieOtherInfo {
+      font-size: 16px;
+      color: $light-orange;
+      margin: 10px 0;
+      height: 40px;
+    }
+
+    .movieRating {
+      font-size: 18px;
+      color: $light-orange
+    }
+
+    .movieRate {
+      color: $light-orange;
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    .movieRatingBar {
+      margin: 20px 0;
+      background-color: #ebebeb;
+      width: 78vw;
+      height: 5px;
+      border-radius: 5px;
+
+      div {
+        background-color: $primary-color;
+        height: 5px;
+        border-radius: 5px;
+      }
+    }
+  }
+}
