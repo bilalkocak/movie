@@ -9,10 +9,6 @@ import Crew from "./Crew/Crew";
 
 import {isOnWatchList} from "../../helper/helper";
 import {fetchMovie, deleteFilmFromWatchList, addFilmToWatchList} from "../../store/actions/movie";
-    deleteFilmFromWatchList,
-    isOnWatchList
-} from "../../helper/helper";
-import {fetchMovie} from "../../store/actions/movie";
 import {useDispatch, useSelector} from "react-redux";
 
 
@@ -26,17 +22,13 @@ export default function MovieDetail() {
 
 
     useEffect(() => {
-        getMovie(router.query.id);
+        getMovie(router.asPath.split('id=')[1])
     }, [])
 
 
-    function getMovie(id) {
-        new Promise((resolve, reject) => {
-            dispatch(fetchMovie(id))
-            resolve();
-        }).then(() => {
-            setIsLoading(false)
-        })
+    async function getMovie(movieId) {
+        await dispatch(fetchMovie(movieId))
+        setIsLoading(false)
     }
 
     function addToWatchList() {
@@ -47,7 +39,6 @@ export default function MovieDetail() {
     function deleteFromWatchList() {
         dispatch(deleteFilmFromWatchList(id))
         set_IsOnWatchList(isOnWatchList(id))
-
     }
 
     return (
@@ -73,10 +64,13 @@ export default function MovieDetail() {
                                 <div className="movieName">
                                     {movie.Title}
                                 </div>
-                                <div className={"movieDetailRating"}>
-                                    <CountUp start={0.00} end={parseFloat(movie.imdbRating)} decimal="," decimals={1}
-                                             duration={2}/>
-                                </div>
+                                {
+                                    movie.imdbRating > 0 && <div className={"movieDetailRating"}>
+                                        <CountUp start={0.00} end={parseFloat(movie.imdbRating)} decimal=","
+                                                 decimals={1}
+                                                 duration={2}/>
+                                    </div>
+                                }
                             </div>
                             <RatingBar rate={movie.imdbRating} width={'100%'}/>
 
