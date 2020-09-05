@@ -1,0 +1,28 @@
+@import "styles/colors";
+
+.suggestion {
+  width: 95vw;
+  margin: 55px auto 0 auto;
+
+
+  .title {
+    font-size: 35px;
+    text-align: center;
+  }
+
+  * {
+    color: $primary-color;
+
+  }
+
+  .button {
+    color: white;
+    height: 80px !important;
+  }
+
+  .films {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
