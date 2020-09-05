@@ -7,8 +7,8 @@ import Button from "../Common/Button/Button";
 import RatingBar from "../Common/RatingBar/RatingBar";
 import Crew from "./Crew/Crew";
 
-import {
-    addFilmToWatchList,
+import {isOnWatchList} from "../../helper/helper";
+import {fetchMovie, deleteFilmFromWatchList, addFilmToWatchList} from "../../store/actions/movie";
     deleteFilmFromWatchList,
     isOnWatchList
 } from "../../helper/helper";
@@ -20,7 +20,7 @@ export default function MovieDetail() {
     const router = useRouter()
     const [isLoading, setIsLoading] = useState(true)
     const [id, setId] = useState(router.query.id)
-    const [_isOnWatchList, set_IsOnWatchList] = useState(isOnWatchList(id))
+    const [_isOnWatchList, set_IsOnWatchList] = useState(null)
     const dispatch = useDispatch()
     const movie = useSelector(state => state.movie.movie)
 
@@ -40,12 +40,12 @@ export default function MovieDetail() {
     }
 
     function addToWatchList() {
-        addFilmToWatchList(id);
+        dispatch(addFilmToWatchList(id))
         set_IsOnWatchList(isOnWatchList(id))
     }
 
     function deleteFromWatchList() {
-        deleteFilmFromWatchList(id);
+        dispatch(deleteFilmFromWatchList(id))
         set_IsOnWatchList(isOnWatchList(id))
 
     }
