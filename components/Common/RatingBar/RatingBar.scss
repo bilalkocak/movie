@@ -1,0 +1,16 @@
+@import "styles/colors";
+
+.movieRatingBar {
+  margin: 20px auto;
+  background-color: #ebebeb;
+  height: 5px;
+  border-radius: 5px;
+
+  div {
+    background-color: $dark-orange;
+    height: 5px;
+    border-radius: 5px;
+    width: 0;
+    transition: width 2000ms;
+  }
+}
