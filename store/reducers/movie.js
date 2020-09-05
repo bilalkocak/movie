@@ -2,7 +2,10 @@ import * as types from '../types'
 
 const initialState = {
     movies: [],
-    movie: {}
+    movie: {
+        imdbRating: 0
+    },
+    watchList: []
 }
 
 export const movie = (state = initialState, action) => {
@@ -11,6 +14,16 @@ export const movie = (state = initialState, action) => {
             return {
                 ...state,
                 movie: action.payload
+            }
+        case types.DELETE_FROM_WATCH_LIST:
+            return {
+                ...state,
+                watchList: action.payload
+            }
+        case types.ADD_TO_WATCH_LIST:
+            return {
+                ...state,
+                watchList: action.payload
             }
         default:
             return state
