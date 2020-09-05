@@ -1,0 +1,126 @@
+@import "styles/colors";
+
+.movieDetailContainer {
+  width: 100vw;
+  display: flex;
+
+  .movieDetail {
+    background-image: linear-gradient($primary-color, $primary-color, $primary-color, $primary-color, $secondary-color, #fff, #fff);
+    padding: 24px 5vw 44px 5vw;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .movieImg {
+      display: flex;
+      position: relative;
+      width: 30%;
+      min-width: 350px;
+      align-items: stretch;
+      margin-bottom: 60px;
+
+      img {
+        width: 100%;
+        height: auto;
+        border-radius: 6px;
+      }
+
+
+      .movieImgButton {
+        $buttonWidth: 60px;
+        position: absolute;
+        bottom: -$buttonWidth/2 + 10px;
+        right: -$buttonWidth/2 +10px;
+        background-color: $dark-orange;
+        width: $buttonWidth;
+        height: $buttonWidth;
+        border-radius: $buttonWidth;
+        color: #ffffff;
+        font-weight: bolder;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 30px;
+        transition: background-color 1s ease-in-out;
+
+
+        &:focus {
+          outline: none
+        }
+      }
+
+    }
+
+    .movieInfoContainer {
+      width: 50%;
+      min-width: 350px;
+      margin-bottom: 30px;
+
+      .movieDetailInfoTopSide {
+        display: flex;
+        align-items: center;
+        margin-top: 25px;
+        margin-bottom: 40px;
+        justify-content: space-between;
+
+        .movieName {
+          font-size: 35px;
+          font-weight: bold;
+          margin-right: 5px;
+        }
+      }
+
+      .movieDetailRating {
+        font-size: 20px;
+        color: $orange-text !important;
+        border: 1px solid $orange-text;;
+        border-radius: 5px;
+        padding: 3px;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        margin-right: 5px;
+        width: 10%;
+
+        * {
+          color: $orange-text;
+        }
+      }
+
+      .movieOtherInfo {
+        font-size: 14px;
+        color: $orange-text;
+        margin-top: 8px;
+      }
+
+      .movieStoryline {
+        margin-top: 28px;
+        font-size: 14px;
+
+      }
+    }
+
+  }
+}
+
+
+@media only screen and (min-width: 740px) {
+  .movieDetailContainer {
+    .movieDetail {
+      .movieImg {
+        margin-right: 50px;
+      }
+    }
+  }
+}
+
+
+@media only screen and (max-width: 740px) {
+  .movieDetailContainer {
+    .movieDetail {
+      background-image: linear-gradient($primary-color, $primary-color, $primary-color, $primary-color, $secondary-color, $secondary-color, #fff);
+    }
+  }
+}
+
