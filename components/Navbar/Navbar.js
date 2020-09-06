@@ -7,8 +7,8 @@ const Navbar = () => {
             <Link href={'/'}>
                 <a>Search</a>
             </Link>
-            <Link href={'/favorites'}>
-                <a>Favorites</a>
+            <Link href={'/watchlist'}>
+                <a>Watch List</a>
             </Link>
         </div>
     );
