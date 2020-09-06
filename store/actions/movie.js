@@ -24,7 +24,7 @@ export const addFilmToWatchList = (id) => dispatch => {
     localStorage.setItem('watchList', JSON.stringify(watchList))
     dispatch({
         type: types.ADD_TO_WATCH_LIST,
-        payload: localStorage.getItem("watchList")
+        payload: JSON.parse(localStorage.getItem("watchList"))
     })
 }
 
@@ -35,7 +35,7 @@ export const deleteFilmFromWatchList = (id) => dispatch => {
     localStorage.setItem('watchList', JSON.stringify(watchList))
     dispatch({
         type: types.DELETE_FROM_WATCH_LIST,
-        payload: localStorage.getItem("watchList")
+        payload: JSON.parse(localStorage.getItem("watchList"))
     })
 }
 

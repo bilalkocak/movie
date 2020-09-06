@@ -27,6 +27,7 @@ export default function MovieDetail() {
 
     async function getMovie(movieId) {
         await dispatch(fetchMovie(movieId))
+        set_IsOnWatchList(isOnWatchList(movieId))
         setIsLoading(false)
     }
 
