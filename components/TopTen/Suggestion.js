@@ -10,7 +10,7 @@ const Suggestion = ({id, title, films}) => {
             </h4>
             <div className={'films'}>
                 {films.map((film, index) => {
-                    return (<MovieCard film={film} style={{height: 150}} key={index}>{film}</MovieCard>)
+                    return (<MovieCard filmId={film} style={{height: 150}} key={index}/>)
                 })}
             </div>
         </div>
