@@ -10,6 +10,14 @@ export const fetchMovie = (id) => async dispatch => {
     })
 }
 
+export const searchMovie = (data) => async dispatch => {
+    const res = await axios.get(`${API_URL}&s=${data.query}&plot=full&y=${data.year}`)
+    dispatch({
+        type: types.SEARCH_MOVIE,
+        payload: res.data.Search
+    })
+}
+
 export const addFilmToWatchList = (id) => dispatch => {
     let watchList = localStorage.getItem("watchList") ? JSON.parse(localStorage.getItem("watchList")) : [];
     !watchList.includes(id) && watchList.push(id);
