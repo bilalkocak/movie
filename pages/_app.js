@@ -1,6 +1,7 @@
 import '../styles/globals.css'
 import {Provider} from 'react-redux'
 import store from '../store/store'
+import {createWrapper} from "next-redux-wrapper";
 import '../components/Search/Search.scss'
 import '../components/Navbar/Navbar.scss'
 import '../components/MovieCard/MovieCard.scss'
@@ -18,4 +19,7 @@ function MyApp({Component, pageProps}) {
     )
 }
 
-export default MyApp
+const makeStore = () => store
+const wrapper = createWrapper(makeStore)
+
+export default wrapper.withRedux(MyApp)
