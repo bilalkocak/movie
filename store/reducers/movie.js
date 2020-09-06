@@ -25,6 +25,11 @@ export const movie = (state = initialState, action) => {
                 ...state,
                 watchList: action.payload
             }
+        case types.GET_WATCH_LIST:
+            return {
+                ...state,
+                watchList: action.payload
+            }
         default:
             return state
     }

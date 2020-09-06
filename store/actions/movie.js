@@ -30,3 +30,10 @@ export const deleteFilmFromWatchList = (id) => dispatch => {
         payload: localStorage.getItem("watchList")
     })
 }
+
+export const getWatchList = () => dispatch => {
+    dispatch({
+        type: types.GET_WATCH_LIST,
+        payload: JSON.parse(localStorage.getItem("watchList"))
+    })
+}
