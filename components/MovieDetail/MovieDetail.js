@@ -15,7 +15,6 @@ import {useDispatch, useSelector} from "react-redux";
 export default function MovieDetail() {
     const router = useRouter()
     const [isLoading, setIsLoading] = useState(true)
-    const [id, setId] = useState(router.query.id)
     const [_isOnWatchList, set_IsOnWatchList] = useState(null)
     const dispatch = useDispatch()
     const movie = useSelector(state => state.movie.movie)
@@ -31,12 +30,12 @@ export default function MovieDetail() {
         setIsLoading(false)
     }
 
-    function addToWatchList() {
+    function addToWatchList(id) {
         dispatch(addFilmToWatchList(id))
         set_IsOnWatchList(isOnWatchList(id))
     }
 
-    function deleteFromWatchList() {
+    function deleteFromWatchList(id) {
         dispatch(deleteFilmFromWatchList(id))
         set_IsOnWatchList(isOnWatchList(id))
     }
@@ -84,7 +83,7 @@ export default function MovieDetail() {
 
                             <Button text={_isOnWatchList ? "- REMOVE FROM WATCHLIST" : "+ ADD TO WATCHLIST"}
                                     isBackgroundRed={_isOnWatchList}
-                                    onClick={_isOnWatchList ? () => deleteFromWatchList() : () => addToWatchList()}/>
+                                    onClick={_isOnWatchList ? () => deleteFromWatchList(movie.imdbID) : () => addToWatchList(movie.imdbID)}/>
 
                         </div>
 
