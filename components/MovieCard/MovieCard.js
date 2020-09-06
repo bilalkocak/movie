@@ -22,7 +22,7 @@ const MovieCard = ({filmId, filmObject}) => {
             })
                 .catch(error => error.log)
         }
-    }, [])
+    }, [filmObject, filmId])
     return (
         <>
             {
