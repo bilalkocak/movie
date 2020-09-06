@@ -12,7 +12,7 @@ const Search = () => {
     }
 
     function search() {
-            dispatch(searchMovie({query: searchText}))
+        dispatch(searchMovie({query: searchText}))
     }
 
     return (

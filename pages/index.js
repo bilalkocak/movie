@@ -29,7 +29,7 @@ export default function Home() {
             <Search/>
             {
                 movies.length > 0 ?
-                    <Result id={'search'} title={'Search Results'} films={movies}/>
+                    <Result id={'search'} title={'Search Results'} movies={movies}/>
                     :
                     <>
                         <Suggestion id={'top10'} title={'Top 10'} films={topTen}/>
