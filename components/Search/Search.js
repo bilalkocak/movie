@@ -1,12 +1,19 @@
 import React, {useState} from 'react';
+import {useDispatch} from "react-redux";
+import {searchMovie} from "../../store/actions/movie";
 
 
 const Search = () => {
+    const dispatch = useDispatch()
     const [searchText, setSearchText] = useState('')
 
     function onChangeSearchInput(value) {
         setSearchText(value)
-    };
+    }
+
+    function search() {
+            dispatch(searchMovie({query: searchText}))
+    }
 
     return (
         <div className={'mainPageSearchSection'}>
@@ -27,7 +34,7 @@ const Search = () => {
                     <input placeholder="Search movie..."
                            onChange={(e) => onChangeSearchInput(e.target.value)}
                            value={searchText}/>
-                    <button>Search</button>
+                    <button onClick={() => search()}>Search</button>
                 </div>
             </div>
             <div className={'triangle'}/>

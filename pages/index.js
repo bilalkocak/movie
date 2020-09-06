@@ -1,16 +1,16 @@
-import {useDispatch} from "react-redux";
+import {useSelector} from "react-redux";
 import React, {useEffect, useState} from "react"
-import {fetchPosts} from "../store/actions/movie";
 import Layout from "../components/Layout";
 import Search from "../components/Search/Search";
 import Suggestion from "../components/TopTen/Suggestion";
 import axios from "axios";
+import Result from "../components/Search/Result/Result";
 
 
 export default function Home() {
-    const dispatch = useDispatch()
     const [topTen, setTopTen] = useState([])
     const [editorChoices, setEditorChoices] = useState([])
+    const movies = useSelector(state => state.movie.movies)
 
     function getTopFilms() {
         axios.get('/api/editorsChoices').then(res => setEditorChoices(res.data.films)).catch(error => console.log(error))
@@ -27,8 +27,16 @@ export default function Home() {
     return (
         <Layout className={'index'}>
             <Search/>
-            <Suggestion id={'top10'} title={'Top 10'} films={topTen}/>
-            <Suggestion id={'editors'} title={'Editor\'s Choices'} films={editorChoices}/>
+            {
+                movies.length > 0 ?
+                    <Result id={'search'} title={'Search Results'} films={movies}/>
+                    :
+                    <>
+                        <Suggestion id={'top10'} title={'Top 10'} films={topTen}/>
+                        <Suggestion id={'editors'} title={'Editor\'s Choices'} films={editorChoices}/>
+                    </>
+            }
+
         </Layout>
     )
 }
