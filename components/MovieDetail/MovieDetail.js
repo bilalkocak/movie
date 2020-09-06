@@ -56,7 +56,7 @@ export default function MovieDetail() {
                         <div className={"movieImg"}>
                             <img src={movie.Poster} alt=""/>
                             <div className={_isOnWatchList ? "movieImgButton redButton" : "movieImgButton"}
-                                 onClick={_isOnWatchList ? () => deleteFromWatchList() : () => addToWatchList()}>{_isOnWatchList ? "-" : "+"}</div>
+                                 onClick={_isOnWatchList ? () => deleteFromWatchList(movie.imdbID) : () => addToWatchList(movie.imdbID)}>{_isOnWatchList ? "-" : "+"}</div>
                         </div>
                         <div className={"movieInfoContainer"}>
                             <div className={"movieDetailInfoTopSide"}>
