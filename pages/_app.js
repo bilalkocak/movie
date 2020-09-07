@@ -10,6 +10,7 @@ import '../components/Common/Button/Button.scss'
 import '../components/Common/RatingBar/RatingBar.scss'
 import '../components/MovieDetail/MovieDetail.scss'
 import '../components/MovieDetail/Crew/Crew.scss'
+import '../components/Search/Result/Result.scss'
 
 function MyApp({Component, pageProps}) {
     return (

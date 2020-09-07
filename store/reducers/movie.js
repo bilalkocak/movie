@@ -5,7 +5,9 @@ const initialState = {
     movie: {
         imdbRating: 0
     },
-    watchList: []
+    watchList: [],
+    page: 1,
+    totalPage: 0
 }
 
 export const movie = (state = initialState, action) => {
@@ -30,10 +32,16 @@ export const movie = (state = initialState, action) => {
                 ...state,
                 watchList: action.payload
             }
+        case types.SET_PAGE:
+            return {
+                ...state,
+                page: action.payload
+            }
         case types.SEARCH_MOVIE:
             return {
                 ...state,
-                movies: action.payload
+                movies: action.payload.Search,
+                totalPage: parseInt(action.payload.totalResults / 10)
             }
         default:
             return state

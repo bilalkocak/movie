@@ -1,0 +1,22 @@
+@import "styles/colors";
+
+.suggestion {
+
+  .pagination {
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+
+    button {
+      padding: 8px 10px;
+      border: none;
+      height: 30px;
+      width: 100px;
+      background: $dark-orange;
+      color: white;
+      margin-bottom: 20px;
+      border-radius: 5px;
+    }
+  }
+
+}

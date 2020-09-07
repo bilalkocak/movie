@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {useDispatch} from "react-redux";
+import React, {useState, useEffect} from 'react';
+import {useDispatch, useSelector} from "react-redux";
 import Select from 'react-select';
 import {searchMovie} from "../../store/actions/movie";
 
@@ -11,14 +11,19 @@ const options = [
 ]
 
 
-// const filter = require('/public/filter.svg')
-
 const Search = () => {
     const dispatch = useDispatch()
     const [searchText, setSearchText] = useState('')
     const [yearInput, setYearInput] = useState('')
     const [filterVisible, setFilterVisible] = useState(false)
     const [select, setSelect] = useState('all')
+    const page = useSelector(state => state.movie.page)
+
+    useEffect(() => {
+       if(searchText!==''){
+           search()
+       }
+    }, [page])
 
     function onChangeSearchInput(value) {
         setSearchText(value)
@@ -40,6 +45,7 @@ const Search = () => {
         if (select !== 'all') {
             data.type = select
         }
+        data.page = page
         dispatch(searchMovie(data))
     }
 

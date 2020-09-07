@@ -20,6 +20,10 @@ export default function Home() {
         axios.get('/api/topFilms').then(res => setTopTen(res.data.films)).catch(error => console.log(error))
     }
 
+    function setPage() {
+
+    }
+
     useEffect(() => {
         getTopFilms()
         getEditorsChoices()
@@ -29,7 +33,7 @@ export default function Home() {
             <Search/>
             {
                 movies.length > 0 ?
-                    <Result id={'search'} title={'Search Results'} movies={movies}/>
+                    <Result id={'search'} title={'Search Results'} movies={movies} setPage={setPage}/>
                     :
                     <>
                         <Suggestion id={'top10'} title={'Top 10'} films={topTen}/>

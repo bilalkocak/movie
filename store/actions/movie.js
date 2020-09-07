@@ -18,10 +18,13 @@ export const searchMovie = (data) => async dispatch => {
     if (data.year) {
         url += `&y=${data.year}`
     }
+    if (data.page) {
+        url += `&page=${data.page}`
+    }
     const res = await axios.get(url)
     dispatch({
         type: types.SEARCH_MOVIE,
-        payload: res.data.Search
+        payload: res.data
     })
 }
 
@@ -50,5 +53,12 @@ export const getWatchList = () => dispatch => {
     dispatch({
         type: types.GET_WATCH_LIST,
         payload: localStorage.getItem("watchList") ? JSON.parse(localStorage.getItem("watchList")) : []
+    })
+}
+
+export const setPage = (page) => dispatch => {
+    dispatch({
+        type: types.SET_PAGE,
+        payload: page
     })
 }
