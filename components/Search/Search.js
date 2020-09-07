@@ -68,7 +68,7 @@ const Search = () => {
                     <button onClick={() => search()}>Search</button>
                 </div>
                 {
-                    !filterVisible &&
+                    filterVisible &&
                     <div className={'filterArea'}>
                         <input placeholder="Year"
                                style={{width: 100}}

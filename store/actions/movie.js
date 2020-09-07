@@ -11,7 +11,14 @@ export const fetchMovie = (id) => async dispatch => {
 }
 
 export const searchMovie = (data) => async dispatch => {
-    const res = await axios.get(`${API_URL}&s=${data.query}&plot=full&y=${data.year}&type=${data.type}`)
+    let url = `${API_URL}s=${data.query}&plot=full`
+    if (data.type) {
+        url += `&type=${data.type}`
+    }
+    if (data.year) {
+        url += `&y=${data.year}`
+    }
+    const res = await axios.get(url)
     dispatch({
         type: types.SEARCH_MOVIE,
         payload: res.data.Search
