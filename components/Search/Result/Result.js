@@ -6,6 +6,7 @@ import {useDispatch, useSelector} from "react-redux";
 const Result = ({id, title, movies}) => {
     const dispatch = useDispatch()
     const page = useSelector(state => state.movie.page)
+    const totalPage = useSelector(state => state.movie.totalPage)
     return (
         <div className={'suggestion'} id={id}>
             <h4 className={'title'}>
@@ -17,8 +18,8 @@ const Result = ({id, title, movies}) => {
                 })}
             </div>
             <div className={'pagination'}>
-                <button onClick={() => dispatch(setPage(page - 1))}>Back</button>
-                <button onClick={() => dispatch(setPage(page + 1))}>Next</button>
+                {page > 1 ? <button onClick={() => dispatch(setPage(page - 1))}>Back</button> : <div></div>}
+                {totalPage !== page && <button onClick={() => dispatch(setPage(page + 1))}>Next</button>}
             </div>
         </div>
     );
