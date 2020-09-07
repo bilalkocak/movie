@@ -41,7 +41,6 @@
 
     }
 
-
     .searchArea {
       width: 60vw;
       display: flex;
@@ -83,6 +82,22 @@
         }
       }
     }
+
+    .filterArea {
+      display: flex;
+      justify-content: flex-start;
+      background: $secondary-color;
+      width: 60vw;
+      padding: 20px;
+
+      input {
+        border-radius: 3px;
+        border: none;
+        color: $primary-color;
+        margin-right: 20px;
+      }
+
+    }
   }
 
   .triangle {
@@ -94,6 +109,15 @@
     margin-top: auto;
   }
 
+}
+
+.select {
+  width: 300px;
+
+  * {
+    color: $primary-color !important;
+    background: white !important;
+  }
 }
 
 @media only screen and (max-width: 740px) {

@@ -11,7 +11,7 @@ export const fetchMovie = (id) => async dispatch => {
 }
 
 export const searchMovie = (data) => async dispatch => {
-    const res = await axios.get(`${API_URL}&s=${data.query}&plot=full&y=${data.year}`)
+    const res = await axios.get(`${API_URL}&s=${data.query}&plot=full&y=${data.year}&type=${data.type}`)
     dispatch({
         type: types.SEARCH_MOVIE,
         payload: res.data.Search
